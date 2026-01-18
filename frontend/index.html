@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wanderlust Adventures | Explore the World</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- AOS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- CSS file link -->
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- Script file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.1/dist/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home-section"><i class="fas fa-globe-americas me-2 ms-0"></i>Wanderlust</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-3 ">
+                    <li class="nav-item"><a class="nav-link active" href="#home-section">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#destinations-section">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#packages-section">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery-section">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog-section">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-wanderlust">About</a></li> <!-- Fixed -->
+                    <li class="nav-item"><a class="nav-link" href="#faq-section">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#booking-section">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact-section">Contact</a></li>
+                </ul>
+
+
+
+                <div class="d-flex align-items-center justify-content-end gap-2 me-0" style="margin-right: 0;">
+                    <label class="theme-switch" for="checkbox" style="margin: 0;">
+                        <input type="none" id="checkbox" style="display:none;" />
+                    </label>
+                
+                    <button class="btn btn-outline-primary btn-sm text-nowrap" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">Sign In</button>
+                
+                    <button class="btn btn-primary btn-sm text-nowrap" data-bs-toggle="modal"
+                        data-bs-target="#registerModal">Sign Up</button>
+                </div>
+                
+                
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Home -->
+    <section id="home-section" class="py-5 page-section">
+        <div class="hero-section">
+            <div class="parallax-layer"
+                style="background-image:url('https://plus.unsplash.com/premium_photo-1674929041876-8c58c0a3f772?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+            </div>
+            <div class="container hero-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <h1 class="display-5 fw-bold mb-3">Explore The World With Confidence</h1>
+                        <p class="lead mb-4">Discover amazing places at exclusive deals. Enjoy the journey with our
+                            premium travel services.</p>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-primary btn-lg btn-ripple" href="#destinations-section">Explore
+                                Destinations</a>
+                            <a class="btn btn-outline-light btn-lg btn-ripple" href="#packages-section">View
+                                Packages</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="container">
+            <div class="search-bar" data-aos="fade-up">
+                <form id="mainSearchForm">
+                    <div class="row g-2 align-items-end">
+                        <div class="col-md-3">
+                            <label class="form-label">Destination</label>
+                            <input id="mainDest" class="form-control" placeholder="Where to?">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Check In</label>
+                            <input type="date" class="form-control" id="mainCheckIn">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Check Out</label>
+                            <input type="date" class="form-control" id="mainCheckOut">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Travelers</label>
+                            <select class="form-select" id="mainTrav">
+                                <option>1 Adult</option>
+                                <option>2 Adults</option>
+                                <option>Family</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 align-self-end">
+                            <button class="btn btn-primary w-100 btn-ripple" type="submit"><i
+                                    class="fas fa-search me-2"></i>
+                                Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Popular Destinations -->
+    <section id="destinations-section" class="page-section py-5">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title text-center mb-4">Popular Destinations</h2>
+            <div class="row" id="popularRow">
+
+                <!-- Beach Destinations -->
+                <div class="col-md-3 mb-4 dest-item" data-category="beach">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top zoom-img" alt="Maldives">
+                            <div class="price-tag">$1,299</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i> <span class="ms-1">4.6</span>
+                            </div>
+                            <h5 class="card-title">Maldives</h5>
+                            <p class="card-text">Tropical paradise with crystal waters.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4 dest-item" data-category="beach">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1731528800859-9dd7da917b6e?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                class="card-img-top zoom-img" alt="Phuket">
+                            <div class="price-tag">$1,099</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="far fa-star"></i> <span class="ms-1">4.3</span>
+                            </div>
+                            <h5 class="card-title">Phuket, Thailand</h5>
+                            <p class="card-text">Famous for beaches and nightlife.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4 dest-item" data-category="beach">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top zoom-img" alt="Bali">
+                            <div class="price-tag">$899</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i> <span class="ms-1">4.5</span>
+                            </div>
+                            <h5 class="card-title">Bali, Indonesia</h5>
+                            <p class="card-text">Experience culture, beaches and nightlife.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4 dest-item" data-category="beach">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top zoom-img" alt="Santorini">
+                            <div class="price-tag">$1,499</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="far fa-star"></i> <span class="ms-1">4.2</span>
+                            </div>
+                            <h5 class="card-title">Santorini, Greece</h5>
+                            <p class="card-text">Enjoy breathtaking sunsets.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- City Destinations -->
+                <div class="col-md-3 mb-4 dest-item" data-category="city">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top zoom-img" alt="Paris">
+                            <div class="price-tag">$1,199</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i> <span class="ms-1">4.9</span>
+                            </div>
+                            <h5 class="card-title">Paris, France</h5>
+                            <p class="card-text">Discover the city of love.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4 dest-item" data-category="city">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                class="card-img-top zoom-img" alt="New York">
+                            <div class="price-tag">$1,499</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i> <span class="ms-1">4.7</span>
+                            </div>
+                            <h5 class="card-title">New York, USA</h5>
+                            <p class="card-text">The city that never sleeps.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4 dest-item" data-category="city">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://plus.unsplash.com/premium_photo-1715868846427-6c1874438cf8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                class="card-img-top zoom-img" alt="London">
+                            <div class="price-tag">$1,299</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i> <span class="ms-1">4.6</span>
+                            </div>
+                            <h5 class="card-title">London, UK</h5>
+                            <p class="card-text">Historic landmarks and modern vibes.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4 dest-item" data-category="city">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top zoom-img" alt="Tokyo">
+                            <div class="price-tag">$1,399</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i> <span class="ms-1">4.8</span>
+                            </div>
+                            <h5 class="card-title">Tokyo, Japan</h5>
+                            <p class="card-text">Blend of tradition and modern city life.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mountain Destinations -->
+                <div class="col-md-3 mb-4 dest-item" data-category="mountain">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top zoom-img" alt="Swiss Alps">
+                            <div class="price-tag">$1,599</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i> <span class="ms-1">4.7</span>
+                            </div>
+                            <h5 class="card-title">Swiss Alps, Switzerland</h5>
+                            <p class="card-text">Snowy peaks and alpine adventures.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4 dest-item" data-category="mountain">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1670126426026-9ce4666817e7?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                class="card-img-top zoom-img" alt="Himalayas">
+                            <div class="price-tag">$1,699</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i> <span class="ms-1">4.8</span>
+                            </div>
+                            <h5 class="card-title">Himalayas, Nepal</h5>
+                            <p class="card-text">Breathtaking peaks and trekking adventures.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4 dest-item" data-category="mountain">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://plus.unsplash.com/premium_photo-1673698463059-c022fb3a32ab?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0"
+                                class="card-img-top zoom-img" alt="Mount Fuji">
+                            <div class="price-tag">$1,599</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i> <span class="ms-1">4.7</span>
+                            </div>
+                            <h5 class="card-title">Mount Fuji, Japan</h5>
+                            <p class="card-text">Iconic mountain with serene landscapes.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4 dest-item" data-category="mountain">
+                    <div class="destination-card card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top zoom-img" alt="Rocky Mountains">
+                            <div class="price-tag">$1,499</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i> <span class="ms-1">4.6</span>
+                            </div>
+                            <h5 class="card-title">Rocky Mountains, USA</h5>
+                            <p class="card-text">Majestic mountain range for adventure seekers.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="row mt-3">
+                <div class="col-12 d-flex justify-content-center gap-2">
+                    <div class="btn-group" id="filterGroup">
+                        <button class="btn btn-outline-primary active" data-filter="all">All</button>
+                        <button class="btn btn-outline-primary" data-filter="beach">Beach</button>
+                        <button class="btn btn-outline-primary" data-filter="city">City</button>
+                        <button class="btn btn-outline-primary" data-filter="mountain">Mountain</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Special Offers -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Special Offers</h2>
+            <div class="row">
+
+                <!-- Thailand Adventure -->
+                <div class="col-md-6 mb-4 d-flex">
+                    <div class="card offer-card destination-card p-2 flex-fill" data-aos="fade-right">
+                        <div class="row g-0 align-items-center h-100">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1595434013977-22f6836e4295?q=80&w=654&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    class="img-fluid h-100 w-100" alt="Thailand" style="object-fit:cover;">
+                            </div>
+                            <div class="col-md-7 p-3 d-flex flex-column justify-content-between">
+                                <div>
+                                    <span class="badge bg-danger mb-2">25% OFF</span>
+                                    <h5 class="card-title">Thailand Adventure</h5>
+                                    <p class="mb-1"><small>7 Days / 6 Nights</small></p>
+                                    <p class="mb-2">From <del class="text-muted">$999</del> <strong
+                                            class="text-primary">$749</strong></p>
+                                </div>
+                                <div class="d-flex gap-2 align-items-center mb-2">
+                                    <a href="#" class="btn btn-sm btn-primary">Book Now</a>
+                                    <div class="ms-auto text-muted"><small>Offer ends in</small>
+                                        <div id="countdown1" class="fw-bold"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiss Alps Escape -->
+                <div class="col-md-6 mb-4 d-flex">
+                    <div class="card offer-card destination-card p-2 flex-fill" data-aos="fade-left">
+                        <div class="row g-0 align-items-center h-100">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&q=80"
+                                    class="img-fluid h-100 w-100" alt="Switzerland" style="object-fit:cover;">
+                            </div>
+                            <div class="col-md-7 p-3 d-flex flex-column justify-content-between">
+                                <div>
+                                    <span class="badge bg-danger mb-2">15% OFF</span>
+                                    <h5 class="card-title">Swiss Alps Escape</h5>
+                                    <p class="mb-1"><small>10 Days / 9 Nights</small></p>
+                                    <p class="mb-2">From <del class="text-muted">$1,899</del> <strong
+                                            class="text-primary">$1,614</strong>
+                                    </p>
+                                </div>
+                                <div class="d-flex gap-2 align-items-center mb-2">
+                                    <a href="#" class="btn btn-sm btn-primary">Book Now</a>
+                                    <div class="ms-auto text-muted"><small>Offer ends in</small>
+                                        <div id="countdown2" class="fw-bold"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages (with interactive rating) -->
+    <section id="packages-section" class="page-section py-5">
+        <div class="container">
+            <h2 class="section-title">Packages</h2>
+            <div class="row">
+                <!-- Package 1 -->
+                <div class="col-md-4 mb-4" data-aos="zoom-in">
+                    <div class="card destination-card p-3" data-pkg-id="pkg-budget">
+                        <h5>Budget Explorer</h5>
+                        <p class="small">Affordable trips for students and backpackers.</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <strong>$499</strong>
+                            <a href="#" class="btn btn-sm btn-primary">Choose</a>
+                        </div>
+                        <div class="mt-2">
+                            <div class="small-muted mb-1">Rating: <span class="pkg-average"
+                                    data-pkg="pkg-budget">4.1</span>/5</div>
+                            <div class="rate-us" data-pkg="pkg-budget">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                                <small class="ms-2 small-muted rate-msg"></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card destination-card p-3" data-pkg-id="pkg-family">
+                        <h5>Family Getaway</h5>
+                        <p class="small">Family-friendly packages with sightseeing.</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <strong>$899</strong>
+                            <a href="#" class="btn btn-sm btn-primary">Choose</a>
+                        </div>
+                        <div class="mt-2">
+                            <div class="small-muted mb-1">Rating: <span class="pkg-average"
+                                    data-pkg="pkg-family">4.5</span>/5</div>
+                            <div class="rate-us" data-pkg="pkg-family">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                                <small class="ms-2 small-muted rate-msg"></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card destination-card p-3" data-pkg-id="pkg-lux">
+                        <h5>Luxury Retreat</h5>
+                        <p class="small">Premium hotels and private tours.</p>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <strong>$2,499</strong>
+                            <a href="#" class="btn btn-sm btn-primary">Choose</a>
+                        </div>
+                        <div class="mt-2">
+                            <div class="small-muted mb-1">Rating: <span class="pkg-average"
+                                    data-pkg="pkg-lux">4.8</span>/5</div>
+                            <div class="rate-us" data-pkg="pkg-lux">
+                                <span class="star" data-value="1">&#9733;</span>
+                                <span class="star" data-value="2">&#9733;</span>
+                                <span class="star" data-value="3">&#9733;</span>
+                                <span class="star" data-value="4">&#9733;</span>
+                                <span class="star" data-value="5">&#9733;</span>
+                                <small class="ms-2 small-muted rate-msg"></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery-section" class="page-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Gallery</h2>
+            <div class="row g-3">
+                <div class="col-md-4 gallery-item" data-aos="zoom-in"><img
+                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+                        alt="">
+                </div>
+                <div class="col-md-4 gallery-item" data-aos="zoom-in"><img
+                        src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+                        alt="">
+                </div>
+                <div class="col-md-4 gallery-item" data-aos="zoom-in"><img
+                        src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80"
+                        alt="">
+                </div>
+                <div class="col-md-4 gallery-item" data-aos="zoom-in"><img
+                        src="https://images.unsplash.com/photo-1675757275576-c387423d1391?q=80&w=859&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""></div>
+                <div class="col-md-4 gallery-item" data-aos="zoom-in"><img
+                        src="https://images.unsplash.com/photo-1753591746937-3c2065ae8102?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""></div>
+                <div class="col-md-4 gallery-item" data-aos="zoom-in"><img
+                        src="https://images.unsplash.com/photo-1685024443348-15d2a604939e?q=80&w=626&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""></div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Blog -->
+    <section id="blog-section" class="page-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">Travel Tips & Blog</h2>
+            <div class="row g-4">
+
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="card h-100 d-flex flex-column">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="blog">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Packing Tips for a 7-day Trip</h5>
+                            <p class="card-text small">Smart packing hacks to save space and weight.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-auto" data-bs-toggle="modal"
+                                data-bs-target="#blogModal" data-title="Packing Tips for a 7-day Trip">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 d-flex flex-column">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1647283183910-314da6e3616e?q=80&w=687&auto=format&fit=crop"
+                                class="card-img-top" alt="blog2">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Enjoy your day</h5>
+                            <p class="card-text small">Tips to discover authentic local cuisine safely.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-auto" data-bs-toggle="modal"
+                                data-bs-target="#blogModal" data-title="How to Find Local Food">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 d-flex flex-column">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1633478415136-0c496a55b3c8?q=80&w=705&auto=format&fit=crop"
+                                class="card-img-top" alt="blog3">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Budgeting Your Trip</h5>
+                            <p class="card-text small">How to plan expenses and save on travel.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-auto" data-bs-toggle="modal"
+                                data-bs-target="#blogModal" data-title="Budgeting Your Trip">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 4 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 d-flex flex-column">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="blog4">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Best Travel Apps</h5>
+                            <p class="card-text small">Apps to make your journey easier and fun.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-auto" data-bs-toggle="modal"
+                                data-bs-target="#blogModal" data-title="Best Travel Apps">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 5 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100 d-flex flex-column">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="blog5">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Travel Photography Tips</h5>
+                            <p class="card-text small">Capture amazing memories with these simple tips.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-auto" data-bs-toggle="modal"
+                                data-bs-target="#blogModal" data-title="Travel Photography Tips">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Card 6 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card h-100 d-flex flex-column">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80"
+                                class="card-img-top" alt="blog6">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Safety Tips for Solo Travelers</h5>
+                            <p class="card-text small">How to stay safe and confident when traveling alone.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-auto" data-bs-toggle="modal"
+                                data-bs-target="#blogModal" data-title="Safety Tips for Solo Travelers">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Wanderlust Section -->
+    <section id="about-wanderlust" class="page-section py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Image -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+                        class="img-fluid rounded shadow" alt="Solo Traveler">
+                </div>
+
+
+
+                <!-- Text Content -->
+                <div class="col-md-6">
+                    <h2>About Wanderlust</h2>
+                    <p>Wanderlust Adventures is a premium travel agency dedicated to creating unforgettable experiences
+                        for
+                        travelers around the world. We craft curated trips with local experts.</p>
+
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><strong>Expert guides:</strong> Handpicked professionals to ensure safe and
+                            enriching
+                            journeys.</li>
+                        <li class="mb-2"><strong>Handpicked hotels:</strong> Comfortable stays for a premium travel
+                            experience.</li>
+                        <li class="mb-2"><strong>24/7 support:</strong> We are always here to assist you during your
+                            travels.</li>
+                    </ul>
+
+                    <p class="fst-italic">"How to stay safe and confident when traveling alone."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQ -->
+    <section id="faq-section" class="page-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">FAQ</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item" data-aos="fade-up">
+                    <h2 class="accordion-header" id="faqOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne">How
+                            do I book a trip?</button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">Use the booking form or contact our team. We will guide you through
+                            the process and confirm the itinerary.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="accordion-header" id="faqTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo">What is your cancellation policy?</button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">Cancellation policy varies by package. Please check the package
+                            details or contact support.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="accordion-header" id="faqThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree">Do you provide travel insurance?</button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">We offer optional travel insurance add-ons at booking time.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="page-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center">What Our Travelers Say</h2>
+            <div class="swiper mySwiper" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="User"
+                                class="rounded-circle me-3" style="width:70px;height:70px;object-fit:cover;">
+                            <div>
+                                <h6 class="mb-0">Sarah Johnson <small class="text-muted">• Bali Traveler</small></h6>
+                                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star-half-alt"></i></div>
+                                <p class="mb-0">"The Bali trip was absolutely amazing! Everything was well organized."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User"
+                                class="rounded-circle me-3" style="width:70px;height:70px;object-fit:cover;">
+                            <div>
+                                <h6 class="mb-0">Michael Chen <small class="text-muted">• Paris Traveler</small></h6>
+                                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <p class="mb-0">"My Paris vacation was a dream come true. The hotel was perfectly
+                                    located."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User"
+                                class="rounded-circle me-3" style="width:70px;height:70px;object-fit:cover;">
+                            <div>
+                                <h6 class="mb-0">Emma Rodriguez <small class="text-muted">• Santorini Traveler</small>
+                                </h6>
+                                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                </div>
+                                <p class="mb-0">"Santorini exceeded all my expectations. The views were breathtaking."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+
+    <section class="page-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">Our Partners</h2>
+            <div class="row align-items-center justify-content-center g-3">
+
+                <div class="col-6 col-md-3 text-center" data-aos="zoom-in">
+                    <div class="partner-logo-card rounded shadow">
+                        <img src="https://images.unsplash.com/photo-1618001789196-8b986847cd5e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Partner 1">
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3 text-center" data-aos="zoom-in">
+                    <div class="partner-logo-card rounded shadow">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=contain&w=400&q=80"
+                            alt="Partner 2">
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3 text-center" data-aos="zoom-in">
+                    <div class="partner-logo-card rounded shadow">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=contain&w=400&q=80"
+                            alt="Partner 3">
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3 text-center" data-aos="zoom-in">
+                    <div class="partner-logo-card rounded shadow">
+                        <img src="https://images.unsplash.com/photo-1611608822650-925c227ef4d2?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Partner 4">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="page-section py-5 text-white"
+        style="background:linear-gradient(90deg,var(--primary-color),#1b8bd1);">
+        <div class="container text-center">
+            <h2 class="mb-3">Ready to plan your next adventure?</h2>
+            <p class="mb-4">Our travel experts are here to help you build the perfect itinerary.</p>
+            <a href="#booking-section" class="btn btn-light btn-lg">Plan Your Trip Today</a>
+        </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="booking-section" class="page-section py-5">
+        <div class="container">
+            <h2 class="section-title">Contact & Booking</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up">
+                    <form id="contactForm">
+                        <div class="mb-3"><label class="form-label">Full name</label><input type="text"
+                                class="form-control" id="contactName" required></div>
+                        <div class="mb-3"><label class="form-label">Email</label><input type="email"
+                                class="form-control" id="contactEmail" required></div>
+                        <div class="mb-3"><label class="form-label">Package</label>
+                            <select id="contactPackage" class="form-select">
+                                <option>Budget Explorer</option>
+                                <option>Family Getaway</option>
+                                <option>Luxury Retreat</option>
+                            </select>
+                        </div>
+                        <div class="mb-3"><label class="form-label">Message</label><textarea class="form-control"
+                                rows="4" id="contactMessage" required></textarea></div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086852247788!2d144.9630923153155!3d-37.81410797975156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f1f1f1%3A0x1234567890abcdef!2sMelbourne!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+                            style="border:0;" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Newsletter -->
+    <section id="contact-section" class="page-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Want to chat? Call us at <strong>+1 (555) 123-4567</strong> or email <a
+                            href="mailto:info@wanderlust.com">info@wanderlust.com</a></p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="input-group justify-content-end" style="max-width:420px;margin-left:auto;">
+                        <input id="newsletterEmail" type="email" class="form-control" placeholder="Your email address">
+                        <button id="subscribeBtn" class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">About Wanderlust</h5>
+                    <p>Wanderlust Adventures curates unforgettable travel experiences worldwide.</p>
+                    <div class="social-icons">
+                        <a href="#" class="footer-icon me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-icon me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="footer-icon me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Destinations</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#destinations-section" class="footer-link">Europe</a></li>
+                        <li><a href="#destinations-section" class="footer-link">Asia</a></li>
+                        <li><a href="#destinations-section" class="footer-link">North America</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4">Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#about-section" class="footer-link">About Us</a></li>
+                        <li><a href="#faq-section" class="footer-link">FAQ</a></li>
+                        <li><a href="#contact-section" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="text-uppercase mb-4">Newsletter</h5>
+                    <p>Subscribe to our newsletter for travel tips, special offers, and exclusive deals.</p>
+                    <div class="input-group mb-3">
+                        <input id="footEmail" type="email" class="form-control" placeholder="Your email address">
+                        <button id="footSubscribe" class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 footer-copy">&copy; 2025 Wanderlust Adventures. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="footer-link me-3">Privacy Policy</a>
+                    <a href="#" class="footer-link me-3">Terms of Service</a>
+                    <a href="#" class="footer-link">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Modals -->
+    <!-- Blog Modal -->
+    <div class="modal fade" id="blogModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="blogModalTitle">Blog</h5><button type="button" class="btn-close"
+                        data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="blogModalContent">Full article content goes here (demo).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Login & Register Modals -->
+<div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sign In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="loginEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="loginEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" autocomplete="new-password">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Account</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="registerEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="registerEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="registerPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="registerPassword" autocomplete="new-password">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Scroll top + chat -->
+    <div class="scroll-top" id="scrollTop" title="Back to top" style="display:none;"><i class="fas fa-chevron-up"></i>
+    </div>
+    <a class="chat-btn" href="https://wa.me/15551234567" target="_blank" title="Chat with us"><i
+            class="fab fa-whatsapp"></i></a>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
