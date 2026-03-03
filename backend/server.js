@@ -5,23 +5,14 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-// ✅ STRONG CORS CONFIG - Sab kuch allow
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-}));
-
-// ✅ OPTIONS pre-flight handle karein
-app.options('*', cors());
-
+// ✅ SIMPLE CORS - '* ' ki jagah normal
+app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 /* ===================== MONGODB CONNECT ===================== */
 console.log("⏳ Connecting to MongoDB...");
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB connected successfully"))
+  .then(() => console.log("✅ MongoDB connected"))
   .catch(err => {
       console.error("❌ MongoDB connection error:", err);
       process.exit(1);
@@ -54,14 +45,13 @@ app.get("/", (req, res) => {
 app.get("/health", (req, res) => {
     res.json({ 
         status: "OK", 
-        mongo: mongoose.connection.readyState === 1,
-        timestamp: new Date().toISOString()
+        mongo: mongoose.connection.readyState === 1 
     });
 });
 
 /* ===================== SIGN UP ===================== */
 app.post("/signup", async (req, res) => {
-    console.log("📝 Signup request received:", req.body?.email);
+    console.log("📝 Signup request");
     try {
         const { username, email, password } = req.body;
         
@@ -86,7 +76,7 @@ app.post("/signup", async (req, res) => {
 
 /* ===================== SIGN IN ===================== */
 app.post("/signin", async (req, res) => {
-    console.log("🔑 Signin request received:", req.body?.email);
+    console.log("🔑 Signin request");
     try {
         const { email, password } = req.body;
 
@@ -108,7 +98,7 @@ app.post("/signin", async (req, res) => {
 
 /* ===================== CONTACT ===================== */
 app.post("/contact", async (req, res) => {
-    console.log("📧 Contact request received:", req.body?.email);
+    console.log("📧 Contact request");
     try {
         const { name, email, package: pkg, message } = req.body;
 
@@ -122,17 +112,10 @@ app.post("/contact", async (req, res) => {
     }
 });
 
-/* ===================== 404 HANDLER ===================== */
-app.use((req, res) => {
-    res.status(404).json({ message: "Route not found" });
-});
-
 /* ===================== SERVER START ===================== */
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log("🚀 Server started on port " + PORT);
-    console.log("📝 CORS: All origins allowed");
-    console.log("🔗 Test: https://wanderlust-backend-uq67.onrender.com");
-    console.log("🔍 Health check: /health");
+    console.log("✅ Health check: /health");
 });
