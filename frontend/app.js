@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     /* ================= BACKEND CHECK ================= */
-    fetch("http://localhost:5000/")
+    fetch("https://wanderlust-backend-uq67.onrender.com/")
         .then(res => res.text())
         .then(data => console.log("Backend says:", data))
         .catch(err => console.log("Backend error:", err));
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 package: document.getElementById("contactPackage").value,
                 message: document.getElementById("contactMessage").value
             };
-            fetch("http://localhost:5000/contact", {
+            fetch("https://wanderlust-backend-uq67.onrender.com/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const password = document.getElementById("loginPassword").value;
 
             try {
-                const res = await fetch("http://localhost:5000/signin", {
+                const res = await fetch("https://wanderlust-backend-uq67.onrender.com/signin", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email, password })
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const password = document.getElementById("registerPassword").value;
 
             try {
-                const res = await fetch("http://localhost:5000/signup", {
+                const res = await fetch("https://wanderlust-backend-uq67.onrender.com/signup", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ username, email, password })
