@@ -1,2 +1,2 @@
-Add-Content .gitignore "node_modules/"
-Add-Content .gitignore ".env"
+node_modules/
+.env
