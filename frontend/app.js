@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-      /* ================= Newsletter ================= */
+     /* ================= Newsletter ================= */
 async function subscribe(email) {
     if (!email || !email.includes('@')) {
         alert('Enter valid email');
@@ -193,6 +193,23 @@ async function subscribe(email) {
         alert("Server error. Please try again.");
         console.error("Subscribe error:", error);
     }
+}
+
+// ✅ YEH LINES ADD KARO - EVENT LISTENERS
+const subscribeBtn = document.getElementById('subscribeBtn');
+if (subscribeBtn) {
+    subscribeBtn.addEventListener('click', () => {
+        const email = document.getElementById('newsletterEmail').value;
+        subscribe(email);
+    });
+}
+
+const footSubscribe = document.getElementById('footSubscribe');
+if (footSubscribe) {
+    footSubscribe.addEventListener('click', () => {
+        const email = document.getElementById('footEmail').value;
+        subscribe(email);
+    });
 }
 
     /* ================= BOOKING FORM ================= */
