@@ -98,6 +98,73 @@ app.post("/signin", async (req, res) => {
     }
 });
 
+
+/* ===================== BOOKING SCHEMA ===================== */
+// ✅ Yeh tumhara ALAG register hai Booking ke liye
+const bookingSchema = new mongoose.Schema({
+    fullName: { type: String, required: true },
+    email: { type: String, required: true },
+    packageName: { type: String, required: true },
+    packagePrice: { type: String, required: true },
+    packageId: { type: String, default: 'unknown' },
+    time: { type: Date, default: Date.now }
+});
+
+// ✅ Yeh tumhara ALAG collection banayega MongoDB mein
+const Booking = mongoose.model("Booking", bookingSchema);
+
+/* ===================== BOOKING ROUTE ===================== */
+// ✅ Yeh tumhara ALAG counter hai Booking ke liye
+app.post("/api/create-booking", async (req, res) => {
+    console.log("📝 Booking request received:", req.body);
+    try {
+        const { fullName, email, packageName, packagePrice, packageId } = req.body;
+        
+        // Validation
+        if (!fullName || !email || !packageName || !packagePrice) {
+            return res.status(400).json({ 
+                success: false,
+                message: "All fields required" 
+            });
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({ 
+                success: false,
+                message: "Invalid email format" 
+            });
+        }
+
+        // ✅ Data ALAG booking collection mein save hoga
+        const newBooking = new Booking({
+            fullName,
+            email,
+            packageName,
+            packagePrice,
+            packageId: packageId || 'unknown'
+        });
+
+        await newBooking.save();
+
+        console.log("✅ Booking saved - ID:", newBooking._id);
+        res.status(201).json({ 
+            success: true,
+            message: "Booking confirmed successfully!",
+            bookingId: newBooking._id
+        });
+
+    } catch (error) {
+        console.error("❌ Booking error:", error);
+        res.status(500).json({ 
+            success: false,
+            message: "Server error while saving booking" 
+        });
+    }
+});
+
+
 /* ===================== CONTACT ===================== */
 app.post("/contact", async (req, res) => {
     console.log("📧 Contact request");
