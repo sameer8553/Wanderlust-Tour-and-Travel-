@@ -182,6 +182,42 @@ app.post("/contact", async (req, res) => {
 });
 
 
+/* ===================== SUBSCRIBE SCHEMA ===================== */
+const subscribeSchema = new mongoose.Schema({
+    email: { type: String, required: true, unique: true },
+    time: { type: Date, default: Date.now }
+});
+
+const Subscriber = mongoose.model("Subscriber", subscribeSchema);
+
+/* ===================== SUBSCRIBE ROUTE ===================== */
+app.post("/api/subscribe", async (req, res) => {
+    console.log("📧 Subscribe request:", req.body.email);
+    try {
+        const { email } = req.body;
+        
+        if (!email || !email.includes('@')) {
+            return res.status(400).json({ message: "Valid email required" });
+        }
+
+        // Check if already subscribed
+        const exists = await Subscriber.findOne({ email });
+        if (exists) {
+            return res.status(400).json({ message: "Email already subscribed" });
+        }
+
+        await Subscriber.create({ email });
+        console.log("✅ Subscriber added:", email);
+        res.json({ message: "Subscribed successfully!" });
+
+    } catch (err) {
+        console.error("❌ Subscribe error:", err);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+
+
 /* ===================== SERVER START ===================== */
 const PORT = process.env.PORT || 5000;
 

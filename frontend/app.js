@@ -165,40 +165,72 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /* ================= Newsletter ================= */
-    function subscribe(email) {
-        if (!email || !email.includes('@')) {
-            alert('Enter valid email');
-            return;
-        }
-        alert('Subscribed: ' + email);
+      /* ================= Newsletter ================= */
+async function subscribe(email) {
+    if (!email || !email.includes('@')) {
+        alert('Enter valid email');
+        return;
     }
 
-    const subscribeBtn = document.getElementById('subscribeBtn');
-    if (subscribeBtn)
-        subscribeBtn.addEventListener('click', () =>
-            subscribe(document.getElementById('newsletterEmail').value)
-        );
+    try {
+        const response = await fetch("https://wanderlust-backend-uq67.onrender.com/api/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            alert("✅ " + data.message);
+            // Clear email fields
+            document.getElementById("newsletterEmail").value = "";
+            document.getElementById("footEmail").value = "";
+        } else {
+            alert("❌ " + data.message);
+        }
+    } catch (error) {
+        alert("Server error. Please try again.");
+        console.error("Subscribe error:", error);
+    }
+}
 
-    const footSubscribe = document.getElementById('footSubscribe');
-    if (footSubscribe)
-        footSubscribe.addEventListener('click', () =>
-            subscribe(document.getElementById('footEmail').value)
-        );
+    /* ================= BOOKING FORM ================= */
+    const bookingForm = document.getElementById("bookingForm");
 
-  /* ================= BOOKING FORM ================= */
-  const bookingForm = document.getElementById("bookingForm");
+    if (bookingForm) {
+        bookingForm.addEventListener("submit", function (e) {
+            e.preventDefault();   
+            alert("Details Submitted Successfully!");
+            bookingForm.reset();
+        });
+    }
 
-  if (bookingForm) {
-      bookingForm.addEventListener("submit", function (e) {
-          e.preventDefault();   
-          alert("Details Submitted Successfully!");
-          bookingForm.reset();
-      });
-  }
+    /* ================= FILTER DESTINATIONS ================= */
+    const filterButtons = document.querySelectorAll('#filterGroup .btn');
+    const destItems = document.querySelectorAll('.dest-item');
 
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();  
+                e.stopPropagation();
 
+                // Active button class update
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filterValue = this.getAttribute('data-filter');
+                
+                destItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
 
-
-
-});
+}); 
