@@ -18,6 +18,8 @@ mongoose.connect(process.env.MONGO_URI)
       process.exit(1);
   });
 
+
+
 /* ===================== SCHEMAS ===================== */
 const userSchema = new mongoose.Schema({
     username: String,
@@ -111,6 +113,7 @@ app.post("/contact", async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 });
+
 
 /* ===================== SERVER START ===================== */
 const PORT = process.env.PORT || 5000;

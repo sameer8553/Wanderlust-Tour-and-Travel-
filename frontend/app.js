@@ -186,4 +186,19 @@ document.addEventListener("DOMContentLoaded", function () {
             subscribe(document.getElementById('footEmail').value)
         );
 
+  /* ================= BOOKING FORM ================= */
+  const bookingForm = document.getElementById("bookingForm");
+
+  if (bookingForm) {
+      bookingForm.addEventListener("submit", function (e) {
+          e.preventDefault();   
+          alert("Details Submitted Successfully!");
+          bookingForm.reset();
+      });
+  }
+
+
+
+
+
 });

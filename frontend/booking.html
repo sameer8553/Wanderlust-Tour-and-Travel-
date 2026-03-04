@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Page</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+
+<body>
+
+<h2 class="heading">Package Booking</h2>
+
+<div class="form-container">
+    <form id="bookingForm">
+
+        <label>Package Name</label>
+        <input type="text" id="pkgName" readonly>
+
+        <label>Price</label>
+        <input type="text" id="pkgPrice" readonly>
+
+        <label>Full Name</label>
+        <input type="text" id="fullName" required>
+
+        <label>Email</label>
+        <input type="email" id="email" required>
+
+        <button type="submit">Confirm Booking</button>
+
+    </form>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+document.getElementById("pkgName").value = params.get("package");
+document.getElementById("pkgPrice").value = params.get("price");
+
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    alert("Booking Successful! We will contact you soon.");
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>
