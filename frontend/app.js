@@ -181,10 +181,21 @@ if (searchForm) {
             console.log("Search response:", data);
 
             if (response.ok) {
-                // Matching destinations dikhao
+
                 if (data.destinations && data.destinations.length > 0) {
                     updateDestinations(data.destinations);
                     alert(`✅ Found ${data.destinations.length} matching destinations!`);
+                    
+                    // ✅ YEH LINES ADD KARO - FORM CLEAR KARNE KE LIYE
+                    // Destination field clear
+                    document.getElementById("mainDest").value = "";
+                    // Check-in field clear
+                    document.getElementById("mainCheckIn").value = "";
+                    // Check-out field clear
+                    document.getElementById("mainCheckOut").value = "";
+                    // Travelers field reset to default (first option)
+                    document.getElementById("mainTrav").selectedIndex = 0;
+                    
                 } else {
                     alert("❌ No matching destinations found");
                 }
@@ -197,6 +208,9 @@ if (searchForm) {
         }
     });
 }
+
+
+                
 
 /* ================= UPDATE DESTINATIONS ================= */
 function updateDestinations(destinations) {
