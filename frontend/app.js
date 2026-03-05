@@ -131,6 +131,145 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
+
+/* ================= SEARCH FORM ================= */
+const searchForm = document.getElementById("mainSearchForm");
+if (searchForm) {
+    searchForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+        
+        // Form se values lo
+        const destination = document.getElementById("mainDest").value.trim();
+        const checkIn = document.getElementById("mainCheckIn").value;
+        const checkOut = document.getElementById("mainCheckOut").value;
+        const travelers = document.getElementById("mainTrav").value;
+
+        // Validation
+        if (!destination) {
+            alert("Please enter a destination");
+            return;
+        }
+        if (!checkIn) {
+            alert("Please select check-in date");
+            return;
+        }
+        if (!checkOut) {
+            alert("Please select check-out date");
+            return;
+        }
+
+        // Data prepare karo
+        const searchData = {
+            destination: destination,
+            checkIn: checkIn,
+            checkOut: checkOut,
+            travelers: travelers
+        };
+
+        console.log("Sending search data:", searchData);
+
+        try {
+            // Backend par data bhejo
+            const response = await fetch("https://wanderlust-backend-uq67.onrender.com/api/search", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(searchData)
+            });
+
+            const data = await response.json();
+            console.log("Search response:", data);
+
+            if (response.ok) {
+                // Matching destinations dikhao
+                if (data.destinations && data.destinations.length > 0) {
+                    updateDestinations(data.destinations);
+                    alert(`✅ Found ${data.destinations.length} matching destinations!`);
+                } else {
+                    alert("❌ No matching destinations found");
+                }
+            } else {
+                alert("❌ " + data.message);
+            }
+        } catch (error) {
+            console.error("Search error:", error);
+            alert("Server error. Please try again.");
+        }
+    });
+}
+
+/* ================= UPDATE DESTINATIONS ================= */
+function updateDestinations(destinations) {
+    const popularRow = document.getElementById("popularRow");
+    if (!popularRow) return;
+
+    // Purani destinations hatao
+    popularRow.innerHTML = "";
+
+    // Nayi destinations dikhao
+    destinations.forEach(dest => {
+        const stars = generateStars(dest.rating);
+        
+        const destHTML = `
+            <div class="col-md-3 mb-4 dest-item" data-category="${dest.category}">
+                <div class="destination-card card">
+                    <div class="position-relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" 
+                             class="card-img-top zoom-img" alt="${dest.name}">
+                        <div class="price-tag">$${dest.price}</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="rating">
+                            ${stars}
+                            <span class="ms-1">${dest.rating}</span>
+                        </div>
+                        <h5 class="card-title">${dest.name}</h5>
+                        <p class="card-text">${getDescription(dest.name)}</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        popularRow.innerHTML += destHTML;
+    });
+}
+
+/* ================= HELPER FUNCTIONS ================= */
+function generateStars(rating) {
+    let stars = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= Math.floor(rating)) {
+            stars += '<i class="fas fa-star"></i>';
+        } else if (i - 0.5 <= rating) {
+            stars += '<i class="fas fa-star-half-alt"></i>';
+        } else {
+            stars += '<i class="far fa-star"></i>';
+        }
+    }
+    return stars;
+}
+
+function getDescription(name) {
+    const descriptions = {
+        "Maldives": "Tropical paradise with crystal waters.",
+        "Phuket": "Famous for beaches and nightlife.",
+        "Bali": "Experience culture, beaches and nightlife.",
+        "Santorini": "Enjoy breathtaking sunsets.",
+        "Paris": "Discover the city of love.",
+        "New York": "The city that never sleeps.",
+        "London": "Historic landmarks and modern vibes.",
+        "Tokyo": "Blend of tradition and modern city life.",
+        "Swiss Alps": "Snowy peaks and alpine adventures.",
+        "Himalayas": "Breathtaking peaks and trekking adventures.",
+        "Mount Fuji": "Iconic mountain with serene landscapes.",
+        "Rocky Mountains": "Majestic mountain range for adventure seekers."
+    };
+    return descriptions[name] || "Amazing destination to explore!";
+}
+
+
+
+
     /* ================= REGISTER MODAL (Sign Up) ================= */
     const registerForm = document.querySelector("#registerModal form");
     if (registerForm) {

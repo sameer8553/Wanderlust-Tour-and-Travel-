@@ -99,6 +99,88 @@ app.post("/signin", async (req, res) => {
 });
 
 
+
+/* ===================== SEARCH SCHEMA ===================== */
+const searchSchema = new mongoose.Schema({
+    destination: { type: String, required: true },
+    checkIn: { type: String, required: true },
+    checkOut: { type: String, required: true },
+    travelers: { type: String, required: true },
+    time: { type: Date, default: Date.now }
+});
+
+const Search = mongoose.model("Search", searchSchema);
+
+/* ===================== SEARCH ROUTE ===================== */
+app.post("/api/search", async (req, res) => {
+    console.log("🔍 Search request:", req.body);
+    try {
+        const { destination, checkIn, checkOut, travelers } = req.body;
+        
+        // Validation
+        if (!destination || !checkIn || !checkOut || !travelers) {
+            return res.status(400).json({ 
+                success: false,
+                message: "All fields required" 
+            });
+        }
+
+        // Database mein save karo
+        const newSearch = new Search({
+            destination,
+            checkIn,
+            checkOut,
+            travelers
+        });
+
+        await newSearch.save();
+        console.log("✅ Search saved:", destination);
+
+        // Matching destinations dhundho
+        const matchingDestinations = getMatchingDestinations(destination);
+        
+        res.status(200).json({ 
+            success: true,
+            message: "Search saved successfully!",
+            destinations: matchingDestinations
+        });
+
+    } catch (error) {
+        console.error("❌ Search error:", error);
+        res.status(500).json({ 
+            success: false,
+            message: "Server error" 
+        });
+    }
+});
+
+/* ===================== HELPER FUNCTION ===================== */
+function getMatchingDestinations(query) {
+    const allDestinations = [
+        { name: "Maldives", price: 1299, rating: 4.6, category: "beach" },
+        { name: "Phuket", price: 1099, rating: 4.3, category: "beach" },
+        { name: "Bali", price: 899, rating: 4.5, category: "beach" },
+        { name: "Santorini", price: 1499, rating: 4.2, category: "beach" },
+        { name: "Paris", price: 1199, rating: 4.9, category: "city" },
+        { name: "New York", price: 1499, rating: 4.7, category: "city" },
+        { name: "London", price: 1299, rating: 4.6, category: "city" },
+        { name: "Tokyo", price: 1399, rating: 4.8, category: "city" },
+        { name: "Swiss Alps", price: 1599, rating: 4.7, category: "mountain" },
+        { name: "Himalayas", price: 1699, rating: 4.8, category: "mountain" },
+        { name: "Mount Fuji", price: 1599, rating: 4.7, category: "mountain" },
+        { name: "Rocky Mountains", price: 1499, rating: 4.6, category: "mountain" }
+    ];
+
+    const queryLower = query.toLowerCase();
+    return allDestinations.filter(dest => 
+        dest.name.toLowerCase().includes(queryLower)
+    );
+}
+
+
+
+
+
 /* ===================== BOOKING SCHEMA ===================== */
 // ✅ Yeh tumhara ALAG register hai Booking ke liye
 const bookingSchema = new mongoose.Schema({
